@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Metadata and links omitted for brevity -->
+  <style>
+    .title-centered {
+      text-align: center;
+    }
+    .image-centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%; /* Increased width for larger image */
+}
+    .image-bigger {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 750%; /* Increased width for larger image */
+}
+.image-half-width {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%; /* Set width to 50% */
+}
+    .image-smaller {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%; /* Set width to 50% */
+}
+.content-centered {
+  text-align: justify; /* Aligns text like the abstract */
+  font-size: 1rem; /* Matches the abstract font size */
+}
+
+.section {
+  background-color: #f5f5f5; /* Consistent background like the abstract */
+}
+    .subtitle {
+      margin-top: 20px; /* Adds space between image and text */
+      font-size: 1rem; /* Matches the abstract font size */
+    }
+    .light-section {
+      background-color: #f5f5f5; /* Light gray background */
+    }
+    .dark-section {
+      background-color: #ffffff; /* White background */
+    }
+  </style>
+</head>
+<body>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="How Many Van Goghs Does It Take to Van Gogh? Finding the Imitation Threshold">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How Many Van Goghs Does It Take to Van Gogh?</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/counting_images/dice-svgrepo-com.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-2 publication-title">How Many Van Goghs Does It Take to Van Gogh?<br>Finding the Imitation Threshold</h2>
+          <div class="is-size-5 publication-authors">
+            <!-- First row of authors -->
+            <span class="author-block">
+              <a href="https://scholar.google.co.in/citations?user=MMBSSXgAAAAJ&hl=en">Sahil Verma</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://x.com/RoyiRassin">Royi Rassin</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=rnRml4EAAAAJ&hl=en">Arnav Das</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=A18gBf4AAAAJ&hl=en">Gantavya Bhatt</a><sup>1</sup>
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <!-- Second row of authors -->
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=SOYgT4kAAAAJ&hl=en">Preethi Seshadri</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=H4dLAw0AAAAJ&hl=en">Chirag Shah</a><sup></sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=L9QufAsAAAAJ&hl=en">Jeff Bilmes</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=LOV6_WIAAAAJ&hl=en">Hannaneh Hajishirzi</a><sup>1,4</sup>
+            </span>
+           <span class="author-block">
+              <a href="https://yanaiela.github.io/">Yanai Elazar</a><sup>1,4</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <!-- Affiliation row -->
+            <span class="author-block"><sup>1</sup>Washington University,</span>
+            <span class="author-block"><sup>2</sup>Bar-Ilan University,</span>
+            <span class="author-block"><sup>3</sup>University of California,</span>
+            <span class="author-block"><sup>4</sup>Allen Institute for AI</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2406.10210"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Litalby1/make-it-count"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+         Text-to-image models are trained using large datasets collected by scraping image-text pairs from the internet. These datasets often include private, copyrighted, and licensed material.Training models on such datasets enables them to generate images with such content, which might violate copyright laws and individuals' privacy. This phenomenon is termed <i>imitation</i> -- generation of images with recognizable similarity to training images. In this work we study the relationship between a concept's frequency in a dataset and the ability of a model to imitate it. We seek to determine the point at which a model was trained on enough instances to imitate a concept -- the <i>imitation threshold</i>. We posit this question as a new problem: <b>F</b>inding the <b>I</b>mitation <b>T</b>hreshold (<i>FIT</i>) and propose an efficient approach that estimates the imitation threshold without incurring the colossal cost of training multiple models from scratch. We experiment with two domains -- human faces and art styles for which we create three datasets, and evaluate three text-to-image models which were trained on two pre-training datasets. Our results reveal that the <i>imitation threshold</i> of these models is in the range of 200-600 images, depending on the domain and the model. The <i>imitation threshold</i> can provide an empirical basis for copyright violation claims and acts as a guiding principle for providers of text-to-image models that aim to comply with copyright and privacy laws.
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title has-text-centered">Examples of Text-to-Image Generation with CountGen</h2>
+
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+           <img src="./static/counting_images/bears.png" alt="Descriptive text about the image" style="width:200%;">
+      <h2 class="subtitle has-text-centered">
+        </div>
+
+        <div class="item item-shiba">
+        <img src="./static/counting_images/donuts.png" alt="Descriptive text about the image" style="width:200%;">
+
+        </div>
+
+
+                <div class="item item-shiba">
+        <img src="./static/counting_images/rabbits.png" alt="Descriptive text about the image" style="width:200%;">
+
+        </div>
+
+
+                <div class="item item-shiba">
+        <img src="./static/counting_images/cakes.png" alt="Descriptive text about the image" style="width:200%;">
+
+        </div>
+
+
+        
+        <div class="item item-shiba">
+        <img src="./static/counting_images/backpacks.png" alt="Descriptive text about the image" style="width:200%;">
+
+        </div>
+        <div class="item item-blueshirt">
+         <img src="./static/counting_images/apples_new.png" alt="Descriptive text about the image" style="width:200%;">
+        </div>
+        <div class="item item-coffee">
+         <img src="./static/counting_images/roses.png" alt="Descriptive text about the image" style="width:200%;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+
+
+
+
+
+<section class="architecture">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 title-centered">MIMETIC<sup>2</sup></h2>
+        <div class="hero-body">
+          <img src="./static/images/fig1.png" alt="Architecture of CountGen" class="image-bigger">
+          <p class="content-centered">
+            An overview of FIT, where we seek the <em>imitation threshold</em> -- the point at which a model was exposed to enough instances of a concept that it can reliably imitate it. The figure shows four concepts (e.g., Van Gogh's art style) that have different frequencies in the training data (213K for Van Gogh). As the frequency of a concept's images increases, the ability of the text-to-image model to imitate it increases (e.g. Piet Mondrian and Van Gogh). We propose an efficient approach, MIMETIC<sup>2</sup>, that estimates the imitation threshold without training models from scratch.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/fig2.png" alt="Descriptive text about the image" style="width:100%; margin-left: 0%;">
+      <h2 class="subtitle has-text-centered">
+        Examples of real celebrity images (top) and generated images from a text-to-image model (bottom) with increasing image counts from left to right (<code>3</code>, <code>273</code>, <code>3K</code>, <code>10K</code>, and <code>90K</code>, respectively).The prompt is "a photorealistic close-up image of {CELEBRITY}".
+
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+ <section class="architecture">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 title-centered">Identify "Objectness" In SDXL</h2>
+        <div class="hero-body">
+          <img src="./static/counting_images/pca_vis-2.png" alt="Architecture of CountGen" class="image-half-width">
+          <p class="content-centered">
+        While most layers do not exhibit separability at the instance level, we notice that a specific layer at a specific timestamp tends to generate different features for different instances of the same object. Based on this finding, we select the self-attention features to serve as our instance-level features.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="architecture">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 title-centered">ReLayout - Natural Layout Correction</h2>
+        <div class="hero-body">
+          <img src="./static/counting_images/remasker (1)-1.png" alt="Architecture of CountGen" class="image-half-width">
+            <p class="content-centered">
+To address under-generation issues, we train a U-Net model to predict a new layout, represented as a multi-channel mask. To train our ReLayout U-Net, 
+        we need a dataset of layout pairs with k and k +1 objects, that maintain the same scene composition. We begin with the empirical observation
+        that slight variations in the object count specified in the prompt—while keeping the starting noise
+        and the rest of the prompt consistent—typically results in images with similar layouts. This consistency is crucial as it allows us to generate a training dataset of
+        layout pairs where each pair has a similar object composition, differing by only one object, thereby
+        preserving the overall scene structure.      </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="architecture">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 title-centered">Qualitative Results</h2>
+        <img src="./static/counting_images/qualitative_comparison-1.png" alt="Architecture of CountGen" class="image-bigger" style="margin-left: -7%;">
+      </br>
+        <p class="content-centered">
+            We evaluated CountGen against DALLE 3, Reason Out Your
+            Layout, SDXL, Repeated Object SDXL and Counten Layout + Bounded Attention. Our method
+            successfully generates the correct number of objects, while other methods struggle in some or all of
+            the examples. </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+    <div class="container is-centered is-max-desktop content">
+      <h2 class="title has-text-centered ">Cite Us</h2>
+      <pre><code>@misc{rassin2024evaluating,
+      title={Evaluating D-MERIT of Partial-annotation on Information Retrieval}, 
+      author={Royi Rassin and Yaron Fairstein and Oren Kalinsky and Guy Kushilevitz and Nachshon Cohen and Alexander Libov and Yoav Goldberg},
+      year={2024},
+      eprint={2406.16048},
+      archivePrefix={arXiv},
+      primaryClass={id='cs.IR' full_name='Information Retrieval' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers indexing, dictionaries, retrieval, content and analysis. Roughly includes material in ACM Subject Classes H.3.0, H.3.1, H.3.2, H.3.3, and H.3.4.'}
+}</code></pre>
+    </div>
+  </section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+             Website source code based on the <a
+              href="https://nerfies.github.io/">Nerfies</a> project page. If you want to reuse their <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> , please credit them appropriately.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body>
+</html>
