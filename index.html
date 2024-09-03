@@ -3,6 +3,14 @@
 <head>
   <!-- Metadata and links omitted for brevity -->
   <style>
+    @font-face {
+      font-family: 'xkcd-script';
+      src: url('fonts/xkcd-script.woff') format('woff'),
+           url('fonts/xkcd-script.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }  
+
     .title-centered {
       text-align: center;
     }
@@ -48,7 +56,73 @@
     .dark-section {
       background-color: #ffffff; /* White background */
     }
-  </style>
+
+    .slider-container {
+      position: relative;
+      height: 60px; /* Ensure this matches the instruction height */
+      margin-top: -70px; /* Apply negative margin to close the gap */
+      margin-bottom: 30px; /* Keep the original margin here */
+    }
+  
+    .slider {
+      width: 100%;
+      margin: 0;
+    }
+
+    .slider-instruction {
+      position: relative;
+      top: -100px;
+      left: -230px; /* Position the arrow correctly */
+      display: flex;
+      align-items: center;
+      margin-top: 0px;
+      margin-bottom: -0px; /* Further reduce space */
+      height: 60px; /* Explicit height, match the slider height */
+    }    
+    
+    .slider-text {
+      font-family: 'xkcd-script', sans-serif;
+      font-size: 0.8cm;
+      position: absolute; /* Allows independent positioning */
+      left: -80px; /* Adjust this value to move the text right */
+      top: -110px; /* Ensure no additional space above */
+      margin: 0; /* Remove margins that could affect positioning */
+    }
+    
+    .arrow {
+      font-family: 'xkcd-script', sans-serif;
+      transform: rotate(0deg); /* Rotate the arrow to point towards the left end of the slider */
+    }    
+
+    .celebrity-info {
+      margin-bottom: 20px; /* Increase space between celebrity name and images */
+    }
+    .reference-images-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    .reference-image {
+      max-width: 19%; /* Max width of 19% of the total slider */
+      max-height: calc(19vw * 1.2); 
+      object-fit: cover;
+      aspect-ratio: 1 / 1; /* Ensures the image remains square */
+      background-color: #f0f0f0; /* Light gray background to show image boundaries */
+    }
+    .generated-images-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .generated-image {
+      width: 18%; /* Approximately one-fifth of the container width */
+      aspect-ratio: 1 / 1; /* Ensures the image remains square */
+      object-fit: cover;
+    }
+</style>
+
+
 </head>
 <body>
 <html>
@@ -97,6 +171,7 @@
 
 
 
+<!-- Title -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
@@ -106,7 +181,7 @@
           <div class="is-size-5 publication-authors">
             <!-- First row of authors -->
             <span class="author-block">
-              <a href="https://scholar.google.co.in/citations?user=MMBSSXgAAAAJ&hl=en">Sahil Verma</a><sup>1</sup>,
+              <a href="https://vsahil.github.io/">Sahil Verma</a><sup>1</sup>,
             </span>
             <span class="author-block">
               <a href="https://x.com/RoyiRassin">Royi Rassin</a><sup>2</sup>,
@@ -115,33 +190,33 @@
               <a href="https://scholar.google.com/citations?user=rnRml4EAAAAJ&hl=en">Arnav Das</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=A18gBf4AAAAJ&hl=en">Gantavya Bhatt</a><sup>1</sup>
+              <a href="https://sites.google.com/view/gbhatt/">Gantavya Bhatt</a><sup>1</sup>
             </span>
           </div>
           <div class="is-size-5 publication-authors">
             <!-- Second row of authors -->
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=SOYgT4kAAAAJ&hl=en">Preethi Seshadri</a><sup>3</sup>,
+              <a href="https://preethiseshadri518.github.io/">Preethi Seshadri</a><sup>3</sup>,
             </span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=H4dLAw0AAAAJ&hl=en">Chirag Shah</a><sup></sup>,
+              <a href="https://chiragshah.org/">Chirag Shah</a><sup>1</sup>,
             </span>
             <span class="author-block">
               <a href="https://scholar.google.com/citations?user=L9QufAsAAAAJ&hl=en">Jeff Bilmes</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=LOV6_WIAAAAJ&hl=en">Hannaneh Hajishirzi</a><sup>1,4</sup>
+              <a href="https://homes.cs.washington.edu/~hannaneh/">Hannaneh Hajishirzi</a><sup>1,4</sup>
             </span>
            <span class="author-block">
-              <a href="https://yanaiela.github.io/">Yanai Elazar</a><sup>1,4</sup>,
+              <a href="https://yanaiela.github.io/">Yanai Elazar</a><sup>1,4</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
             <!-- Affiliation row -->
-            <span class="author-block"><sup>1</sup>Washington University,</span>
+            <span class="author-block"><sup>1</sup>University of Washington,</span>
             <span class="author-block"><sup>2</sup>Bar-Ilan University,</span>
-            <span class="author-block"><sup>3</sup>University of California,</span>
+            <span class="author-block"><sup>3</sup>University of California, Irvine,</span>
             <span class="author-block"><sup>4</sup>Allen Institute for AI</span>
           </div>
 
@@ -158,7 +233,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/Litalby1/make-it-count"
+                <a href="https://github.com/vsahil/MIMETIC-2"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -175,6 +250,8 @@
 </section>
 
 
+
+<!-- Abstract -->
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
@@ -192,65 +269,14 @@
 
 
 
-<!-- <section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title has-text-centered">Examples of Text-to-Image Generation with CountGen</h2>
-
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-           <img src="./static/counting_images/bears.png" alt="Descriptive text about the image" style="width:200%;">
-      <h2 class="subtitle has-text-centered">
-        </div>
-
-        <div class="item item-shiba">
-        <img src="./static/counting_images/donuts.png" alt="Descriptive text about the image" style="width:200%;">
-
-        </div>
-
-
-                <div class="item item-shiba">
-        <img src="./static/counting_images/rabbits.png" alt="Descriptive text about the image" style="width:200%;">
-
-        </div>
-
-
-                <div class="item item-shiba">
-        <img src="./static/counting_images/cakes.png" alt="Descriptive text about the image" style="width:200%;">
-
-        </div>
-
-
-        
-        <div class="item item-shiba">
-        <img src="./static/counting_images/backpacks.png" alt="Descriptive text about the image" style="width:200%;">
-
-        </div>
-        <div class="item item-blueshirt">
-         <img src="./static/counting_images/apples_new.png" alt="Descriptive text about the image" style="width:200%;">
-        </div>
-        <div class="item item-coffee">
-         <img src="./static/counting_images/roses.png" alt="Descriptive text about the image" style="width:200%;">
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-
-
-
-
-
-
-
+<!-- MIMETIC2 Overview -->
 <section class="architecture">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3 title-centered">MIMETIC<sup>2</sup></h2>
+      <div class="column is-full">
+        <h2 class="title is-3 title-centered">MIMETIC<sup>2</sup> Overview</h2>
         <div class="hero-body">
-          <img src="./static/images/fig1.png" alt="Architecture of CountGen" class="image-bigger">
+          <img src="./static/images/fig1.png" alt="Architecture of CountGen" class="image-bigger" style="margin-top: -1cm; margin-bottom: 1.2cm;">
           <p class="content-centered">
             An overview of FIT, where we seek the <em>imitation threshold</em> -- the point at which a model was exposed to enough instances of a concept that it can reliably imitate it. The figure shows four concepts (e.g., Van Gogh's art style) that have different frequencies in the training data (213K for Van Gogh). As the frequency of a concept's images increases, the ability of the text-to-image model to imitate it increases (e.g. Piet Mondrian and Van Gogh). We propose an efficient approach, MIMETIC<sup>2</sup>, that estimates the imitation threshold without training models from scratch.
           </p>
@@ -261,28 +287,20 @@
 </section>
 
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/fig2.png" alt="Descriptive text about the image" style="width:100%; margin-left: 0%;">
-      <h2 class="subtitle has-text-centered">
-        Examples of real celebrity images (top) and generated images from a text-to-image model (bottom) with increasing image counts from left to right (<code>3</code>, <code>273</code>, <code>3K</code>, <code>10K</code>, and <code>90K</code>, respectively).The prompt is "a photorealistic close-up image of {CELEBRITY}".
 
-      </h2>
-    </div>
-  </div>
-</section>
-
-
- <section class="architecture">
+<!-- MIMETIC2 Architecture -->
+<section class="architecture">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3 title-centered">Identify "Objectness" In SDXL</h2>
+      <div class="column is-full">
+        <h2 class="title is-3 title-centered">MIMETIC<sup>2</sup> Architecture</h2>
         <div class="hero-body">
-          <img src="./static/counting_images/pca_vis-2.png" alt="Architecture of CountGen" class="image-half-width">
+          <img src="./static/images/figure-memetic4.png" alt="Architecture of CountGen" class="image-bigger" style="margin-top: -1cm; margin-bottom: 1.2cm;">
           <p class="content-centered">
-        While most layers do not exhibit separability at the instance level, we notice that a specific layer at a specific timestamp tends to generate different features for different instances of the same object. Based on this finding, we select the self-attention features to serve as our instance-level features.
+            An overview of MIMETIC<sup>2</sup>. There are two main steps: (1) <b>Estimating Concept Frequency:</b> we estimate the frequency of a concept in the training data by 
+            using a set of gold-standard images of that concept and counting the number of training images that match those gold gold-standard images; and 
+            (2) <b>Computing Imitation Score:</b> we compute the imitation score of a concept by embedding the training images of that concept (found in Step 1) 
+            and the generated images of that concept, and computing the cosine similarity between the two sets of embeddings. 
           </p>
         </div>
       </div>
@@ -291,60 +309,118 @@
 </section>
 
 
-
-<section class="architecture">
+<!-- Celebrity Image Slider -->
+<section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3 title-centered">ReLayout - Natural Layout Correction</h2>
-        <div class="hero-body">
-          <img src="./static/counting_images/remasker (1)-1.png" alt="Architecture of CountGen" class="image-half-width">
-            <p class="content-centered">
-To address under-generation issues, we train a U-Net model to predict a new layout, represented as a multi-channel mask. To train our ReLayout U-Net, 
-        we need a dataset of layout pairs with k and k +1 objects, that maintain the same scene composition. We begin with the empirical observation
-        that slight variations in the object count specified in the prompt—while keeping the starting noise
-        and the rest of the prompt consistent—typically results in images with similar layouts. This consistency is crucial as it allows us to generate a training dataset of
-        layout pairs where each pair has a similar object composition, differing by only one object, thereby
-        preserving the overall scene structure.      </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <h2 class="title is-3 has-text-centered">Celebrity Image Comparison</h2>
+    <p id="selectedCelebrity" class="has-text-centered" style="font-size: 1.5em; font-weight: bold;"></p>
+    <div id="referenceImages" class="columns is-centered"></div>
+    
+    <!-- Add the instruction div here -->
+    <!-- <div class="slider-instruction">
+      <p class="slider-text">Move the slider</p>
+      <svg class="arrow" width="200" height="200" viewBox="-200 -200 250 250">
+        <line x1="-200" y1="-200" x2="20" y2="20" stroke="#000" stroke-width="5" />
+        <polygon points="30,30 30,0 0,30" fill="#000" />
+      </svg>
+    </div> -->
 
-<section class="architecture">
-  <div class="container">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3 title-centered">Qualitative Results</h2>
-        <img src="./static/counting_images/qualitative_comparison-1.png" alt="Architecture of CountGen" class="image-bigger" style="margin-left: -7%;">
-      </br>
-        <p class="content-centered">
-            We evaluated CountGen against DALLE 3, Reason Out Your
-            Layout, SDXL, Repeated Object SDXL and Counten Layout + Bounded Attention. Our method
-            successfully generates the correct number of objects, while other methods struggle in some or all of
-            the examples. </p>
-      </div>
+    <div class="slider-instruction">
+      <p class="slider-text">Move the slider</p>
+      <svg class="arrow" width="200" height="200" viewBox="-200 -200 250 250">
+        <path d="M -200 -200 Q -150 20 20 35" fill="none" stroke="#000" stroke-width="5" />
+        <polygon points="30,35 10,20 10,50" fill="#000" />
+      </svg>
     </div>
+
+    <div class="slider-container">
+      <input type="range" min="0" max="44" value="0" class="slider" id="celebritySlider">
+    </div>
+    <div id="generatedImages" class="columns is-multiline is-centered"></div>
   </div>
 </section>
 
 
+
+<script>
+  const celebrities = [
+    "Cwaayal Singh","Quinton Reynolds","Sajith Rajapaksa","Yasmin Finney","Samara Joy","Cara Jade Myers","Banks Repeta","Leah Jeffries","Alexandra Cooper","Marcus Freeman",
+    "Mary Lee Pfeiffer","Manny Khoshbin","Cole LaBrant","Ciara Wilson","Zaya Wade","Jim Walton","Zack Bia","Daisy Edgar-Jones","Chase Stokes","Jimmy Buffet",
+    "Jacquetta Wheeler","Matthew Bomer","Mat Fraser","Hunter Schafer","Thomas Doherty","Christiano Ronaldo","Doja Cat","Omar Epps","Chris Watts","Mamie Gummer","Jay Baruchel",
+    "James Garner","Brody Jenner","Rose Leslie","Ansel Elgort","Sterling K. Brown","Olivia Culpo","Greta Thunberg","Bella Thorne","Jessica Biel","Floyd Mayweather","Ben Affleck",
+    "Johnny Depp","Donald Trump"
+  ];
+
+  const numImages = [
+    0, 0, 0, 2, 3, 6, 7, 10, 11, 11, 14, 50, 80, 104, 125, 133, 134, 294, 339, 360, 366, 472, 489, 529, 682, 760, 980, 1343, 1499, 
+    1723, 2005, 2451, 3276, 5778, 8500, 8570, 8571, 8975, 14518, 20310, 28986, 32828, 55301, 89616, 362388
+  ];
+
+  const slider = document.getElementById("celebritySlider");
+  const selectedCelebrity = document.getElementById("selectedCelebrity");
+  const referenceImagesContainer = document.getElementById("referenceImages");
+  const generatedImagesContainer = document.getElementById("generatedImages");
+
+  function updateImages() {
+    const index = slider.value;
+    let celebrity = celebrities[index];
+    
+    // Special case for Daisy Edgar-Jones
+    if (celebrity === "Daisy Edgar-Jones") {
+      celebrity = "Dairy Edgar-Jones";
+    } else {
+      // Remove hyphens for all other names
+      celebrity = celebrity.replace(/-/g, " ");
+    }
+    
+    selectedCelebrity.innerHTML = `<div class="celebrity-info">${celebrity} (${numImages[index]} images)</div>`;
+
+    // Clear and update reference images
+    referenceImagesContainer.innerHTML = '';
+    const referenceWrapper = document.createElement("div");
+    referenceWrapper.classList.add("reference-images-container");
+    for (let i = 1; i <= 5; i++) {
+      const refImg = document.createElement("img");
+      refImg.src = `./static/reference_images_each_celeb_cropped/${celebrities[index].replace(/ /g, "-")}/${i}.png`;
+      refImg.classList.add("reference-image");
+      referenceWrapper.appendChild(refImg);
+    }
+    referenceImagesContainer.appendChild(referenceWrapper);
+
+    // Clear and update generated images
+    generatedImagesContainer.innerHTML = '';
+    const generatedWrapper = document.createElement("div");
+    generatedWrapper.classList.add("generated-images-container");
+    for (let i = 1; i <= 5; i++) {
+      const genImg = document.createElement("img");
+      genImg.src = `./static/generated_images_each_celeb_renamed/${celebrities[index].replace(/ /g, "-")}/${i}.png`;
+      genImg.classList.add("generated-image");
+      generatedWrapper.appendChild(genImg);
+    }
+    generatedImagesContainer.appendChild(generatedWrapper);
+  }
+
+  slider.addEventListener("input", updateImages);
+  updateImages(); // Initial load
+</script>
+
+<!-- Cite Us -->
 <section class="section" id="BibTeX">
     <div class="container is-centered is-max-desktop content">
       <h2 class="title has-text-centered ">Cite Us</h2>
-      <pre><code>@misc{rassin2024evaluating,
-      title={Evaluating D-MERIT of Partial-annotation on Information Retrieval}, 
-      author={Royi Rassin and Yaron Fairstein and Oren Kalinsky and Guy Kushilevitz and Nachshon Cohen and Alexander Libov and Yoav Goldberg},
+      <pre><code>@misc{verma-diffusion-model-imitation-threshold,
+      title={How Many Van Goghs Does It Take to Van Gogh? Finding the Imitation Threshold}, 
+      author={Sahil Verma, Royi Rassin, Arnav Das, Gantavya Bhatt, Preethi Seshadri, Chirag Shah, Jeff Bilmes, Hannaneh Hajishirzi, Yanai Elazar},
       year={2024},
-      eprint={2406.16048},
+      eprint={},
       archivePrefix={arXiv},
-      primaryClass={id='cs.IR' full_name='Information Retrieval' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers indexing, dictionaries, retrieval, content and analysis. Roughly includes material in ACM Subject Classes H.3.0, H.3.1, H.3.2, H.3.3, and H.3.4.'}
 }</code></pre>
     </div>
   </section>
 
 
+
+<!-- Footer -->
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
@@ -373,8 +449,6 @@ To address under-generation issues, we train a U-Net model to predict a new layo
     </div>
   </div>
 </footer>
-
-
 
 
 </body>
