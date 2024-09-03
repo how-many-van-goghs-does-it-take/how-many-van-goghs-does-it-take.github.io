@@ -334,7 +334,7 @@
     </div>
 
     <div class="slider-container">
-      <input type="range" min="0" max="44" value="0" class="slider" id="celebritySlider">
+      <input type="range" min="0" max="43" value="0" class="slider" id="celebritySlider">
     </div>
     <div id="generatedImages" class="columns is-multiline is-centered"></div>
   </div>
@@ -344,16 +344,11 @@
 
 <script>
   const celebrities = [
-    "Cwaayal Singh","Quinton Reynolds","Sajith Rajapaksa","Yasmin Finney","Samara Joy","Cara Jade Myers","Banks Repeta","Leah Jeffries","Alexandra Cooper","Marcus Freeman",
-    "Mary Lee Pfeiffer","Manny Khoshbin","Cole LaBrant","Ciara Wilson","Zaya Wade","Jim Walton","Zack Bia","Daisy Edgar-Jones","Chase Stokes","Jimmy Buffet",
-    "Jacquetta Wheeler","Matthew Bomer","Mat Fraser","Hunter Schafer","Thomas Doherty","Christiano Ronaldo","Doja Cat","Omar Epps","Chris Watts","Mamie Gummer","Jay Baruchel",
-    "James Garner","Brody Jenner","Rose Leslie","Ansel Elgort","Sterling K. Brown","Olivia Culpo","Greta Thunberg","Bella Thorne","Jessica Biel","Floyd Mayweather","Ben Affleck",
-    "Johnny Depp","Donald Trump"
+    'Sajith Rajapaksa', 'Quinton Reynolds', 'Cwaayal Singh', 'Yasmin Finney', 'Samara Joy', 'Cara Jade Myers', 'Banks Repeta', 'Leah Jeffries', 'Alexandra Cooper', 'Marcus Freeman', 'Mary Lee Pfeiffer', 'Manny Khoshbin', 'Cole LaBrant', 'Ciara Wilson', 'Zaya Wade', 'Jim Walton', 'Zack Bia', 'Daisy Edgar-Jones', 'Chase Stokes', 'Jimmy Buffet', 'Jacquetta Wheeler', 'Matthew Bomer', 'Mat Fraser', 'Hunter Schafer', 'Thomas Doherty', 'Christiano Ronaldo', 'Doja Cat', 'Omar Epps', 'Chris Watts', 'Mamie Gummer', 'Jay Baruchel', 'James Garner', 'Brody Jenner', 'Rose Leslie', 'Ansel Elgort', 'Sterling K. Brown', 'Olivia Culpo', 'Greta Thunberg', 'Bella Thorne', 'Jessica Biel', 'Floyd Mayweather', 'Ben Affleck', 'Johnny Depp', 'Donald Trump'
   ];
 
   const numImages = [
-    0, 0, 0, 2, 3, 6, 7, 10, 11, 11, 14, 50, 80, 104, 125, 133, 134, 294, 339, 360, 366, 472, 489, 529, 682, 760, 980, 1343, 1499, 
-    1723, 2005, 2451, 3276, 5778, 8500, 8570, 8571, 8975, 14518, 20310, 28986, 32828, 55301, 89616, 362388
+  0, 0, 0, 2, 3, 6, 7, 10, 11, 11, 14, 50, 80, 104, 125, 133, 134, 294, 339, 360, 472, 489, 529, 682, 760, 980, 1343, 1499, 1723, 2005, 2451, 3276, 5778, 8500, 8570, 8571, 8975, 14518, 20310, 28986, 32828, 55301, 89616, 362388
   ];
 
   const slider = document.getElementById("celebritySlider");
