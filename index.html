@@ -513,5 +513,22 @@
 </footer>
 
 
+<script>
+  function preloadImages() {
+    const celebrityNames = celebrities.map(name => name.replace(/ /g, "-"));
+    
+    celebrityNames.forEach(name => {
+      for (let i = 1; i <= 5; i++) {
+        const img = new Image();
+        img.src = `./static/reference_images_each_celeb_cropped/${name}/${i}.png`;
+        const genImg = new Image();
+        genImg.src = `./static/generated_images_each_celeb_renamed/${name}/${i}.png`;
+      }
+    });
+  }
+
+  window.onload = preloadImages;  // Preload images on window load
+</script>
+
 </body>
 </html>
