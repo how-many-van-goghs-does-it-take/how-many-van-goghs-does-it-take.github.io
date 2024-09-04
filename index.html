@@ -469,14 +469,36 @@
   </div>
 </section>
 
+<div id="copyNotification" style="display:none; position:fixed; bottom:20px; right:20px; background-color:#28a745; color:white; padding:10px; border-radius:5px; font-size:14px;">
+  BibTeX copied!
+</div>
+
 
 <script>
   document.getElementById('copyButton').addEventListener('click', function() {
     const bibtexText = document.getElementById('bibtexCode').innerText;
     navigator.clipboard.writeText(bibtexText).then(function() {
-      alert('BibTeX copied to clipboard!');
+      // Show success notification
+      const notification = document.getElementById('copyNotification');
+      notification.textContent = 'BibTeX copied!';
+      notification.style.backgroundColor = '#28a745'; // Green for success
+      notification.style.display = 'block';
+
+      // Hide it after 3 seconds
+      setTimeout(function() {
+        notification.style.display = 'none';
+      }, 3000);
     }, function() {
-      alert('Failed to copy BibTeX.');
+      // Show failure message
+      const notification = document.getElementById('copyNotification');
+      notification.textContent = 'Failed to copy BibTeX.';
+      notification.style.backgroundColor = '#dc3545'; // Red for failure
+      notification.style.display = 'block';
+
+      // Hide it after 3 seconds
+      setTimeout(function() {
+        notification.style.display = 'none';
+      }, 3000);
     });
   });
 </script>
