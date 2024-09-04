@@ -59,14 +59,27 @@
 
     .slider-container {
       position: relative;
-      height: 60px; /* Ensure this matches the instruction height */
+      height: 100px; /* Ensure this matches the instruction height */
       margin-top: -70px; /* Apply negative margin to close the gap */
-      margin-bottom: 30px; /* Keep the original margin here */
+      margin-bottom: 50px; /* Keep the original margin here */
+      padding: 0 10px;
     }
   
     .slider {
       width: 100%;
       margin: 0;
+    }
+
+    .slider-labels {
+      position: absolute;
+      bottom: -20px; /* Position below the slider */
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      font-family: 'xkcd-script', sans-serif;
+      font-size: 0.8cm;
     }
 
     .slider-instruction {
@@ -120,6 +133,22 @@
       aspect-ratio: 1 / 1; /* Ensures the image remains square */
       object-fit: cover;
     }
+
+    .bibtex-box {
+      border: 2px solid #ccc;  /* Box border */
+      padding: 15px;           /* Padding inside the box */
+      background-color: #f9f9f9; /* Light background */
+      position: relative;       /* So the button can be positioned inside */
+    }
+    
+    #copyButton {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 0.7em;  /* Smaller font size for the 'Copy' button */
+    padding: 5px 5px; /* Keep button size reasonable */
+    }
+
 </style>
 
 
@@ -312,19 +341,9 @@
 <!-- Celebrity Image Slider -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Celebrity Image Comparison</h2>
+    <h2 class="title is-3 has-text-centered">Interact with MIMETIC<sup>2</sup> </h2>
     <p id="selectedCelebrity" class="has-text-centered" style="font-size: 1.5em; font-weight: bold;"></p>
     <div id="referenceImages" class="columns is-centered"></div>
-    
-    <!-- Add the instruction div here -->
-    <!-- <div class="slider-instruction">
-      <p class="slider-text">Move the slider</p>
-      <svg class="arrow" width="200" height="200" viewBox="-200 -200 250 250">
-        <line x1="-200" y1="-200" x2="20" y2="20" stroke="#000" stroke-width="5" />
-        <polygon points="30,30 30,0 0,30" fill="#000" />
-      </svg>
-    </div> -->
-
     <div class="slider-instruction">
       <p class="slider-text">Move the slider</p>
       <svg class="arrow" width="200" height="200" viewBox="-200 -200 250 250">
@@ -335,11 +354,27 @@
 
     <div class="slider-container">
       <input type="range" min="0" max="43" value="0" class="slider" id="celebritySlider">
+      <div class="slider-labels">
+        <span>0</span>
+        <span>362K</span>
+      </div>
     </div>
     <div id="generatedImages" class="columns is-multiline is-centered"></div>
   </div>
 </section>
 
+
+<section class="section" style="margin-top: -50px;">
+  <div class="container is-max-desktop">
+    <div class="content">
+      <p>
+        <strong>Model:</strong> Stable Diffusion 1.0<br>
+        <strong>Prompt:</strong> "A photorealistic close-up photograph of {celebrity}"<br>
+        <strong>Image Count:</strong> We count the number of images of a celebrity by using a celebrity specific detector applied to the images whose caption mention that celebrity.
+      </p>
+    </div>
+  </div>
+</section>
 
 
 <script>
@@ -400,7 +435,7 @@
 </script>
 
 <!-- Cite Us -->
-<section class="section" id="BibTeX">
+<!-- <section class="section" id="BibTeX">
     <div class="container is-centered is-max-desktop content">
       <h2 class="title has-text-centered ">Cite Us</h2>
       <pre><code>@misc{verma-diffusion-model-imitation-threshold,
@@ -411,8 +446,40 @@
       archivePrefix={arXiv},
 }</code></pre>
     </div>
-  </section>
+  </section> -->
 
+  <!-- BibTeX Section -->
+<section class="section" id="BibTeX">
+  <div class="container is-centered is-max-desktop content">
+    <h2 class="title has-text-centered">Cite Us</h2>
+    
+    <!-- Box styling for the BibTeX -->
+    <div class="bibtex-box">
+      <pre><code id="bibtexCode">@misc{verma-diffusion-model-imitation-threshold,
+      title={How Many Van Goghs Does It Take to Van Gogh? Finding the Imitation Threshold}, 
+      author={Sahil Verma, Royi Rassin, Arnav Das, Gantavya Bhatt, Preethi Seshadri, Chirag Shah, Jeff Bilmes, Hannaneh Hajishirzi, Yanai Elazar},
+      year={2024},
+      eprint={},
+      archivePrefix={arXiv},
+}</code></pre>
+      
+      <!-- Copy button -->
+      <button id="copyButton" class="button is-dark">Copy</button>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  document.getElementById('copyButton').addEventListener('click', function() {
+    const bibtexText = document.getElementById('bibtexCode').innerText;
+    navigator.clipboard.writeText(bibtexText).then(function() {
+      alert('BibTeX copied to clipboard!');
+    }, function() {
+      alert('Failed to copy BibTeX.');
+    });
+  });
+</script>
 
 
 <!-- Footer -->
