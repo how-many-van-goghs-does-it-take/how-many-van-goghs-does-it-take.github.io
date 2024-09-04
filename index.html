@@ -411,7 +411,7 @@
     referenceWrapper.classList.add("reference-images-container");
     for (let i = 1; i <= 5; i++) {
       const refImg = document.createElement("img");
-      refImg.src = `./static/reference_images_each_celeb_cropped/${celebrities[index].replace(/ /g, "-")}/${i}.png`;
+      refImg.src = `./static/reference_images_each_celeb_cropped/${celebrities[index].replace(/ /g, "-")}/${i}.webp`;
       refImg.classList.add("reference-image");
       referenceWrapper.appendChild(refImg);
     }
@@ -423,7 +423,7 @@
     generatedWrapper.classList.add("generated-images-container");
     for (let i = 1; i <= 5; i++) {
       const genImg = document.createElement("img");
-      genImg.src = `./static/generated_images_each_celeb_renamed/${celebrities[index].replace(/ /g, "-")}/${i}.png`;
+      genImg.src = `./static/generated_images_each_celeb_renamed/${celebrities[index].replace(/ /g, "-")}/${i}.webp`;
       genImg.classList.add("generated-image");
       generatedWrapper.appendChild(genImg);
     }
@@ -542,9 +542,9 @@
     celebrityNames.forEach(name => {
       for (let i = 1; i <= 5; i++) {
         const img = new Image();
-        img.src = `./static/reference_images_each_celeb_cropped/${name}/${i}.png`;
+        img.src = `./static/reference_images_each_celeb_cropped/${name}/${i}.webp`;
         const genImg = new Image();
-        genImg.src = `./static/generated_images_each_celeb_renamed/${name}/${i}.png`;
+        genImg.src = `./static/generated_images_each_celeb_renamed/${name}/${i}.webp`;
       }
     });
   }
